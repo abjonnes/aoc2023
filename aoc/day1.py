@@ -21,9 +21,9 @@ def get_num(line, token_dict):
     return int(token_dict[digits[0]] + token_dict[digits[-1]])
 
 
-def part1(data):
-    return sum(get_num(line, DIGITS) for line in data.split())
+def part1(lines):
+    return sum(get_num(line, DIGITS) for line in lines)
 
 
-def part2(data):
-    return sum(get_num(line, dict(**DIGITS, **WORDS)) for line in data.split())
+def part2(lines):
+    return sum(get_num(line, dict(**DIGITS, **WORDS)) for line in lines)
