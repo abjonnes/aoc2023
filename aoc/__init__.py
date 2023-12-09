@@ -29,7 +29,13 @@ def run_part(part, data):
     if "data" in sig.parameters:
         args["data"] = data
     if "lines" in sig.parameters:
-        args["lines"] = [line for line in data.split("\n") if line]
+        lines = data.split("\n")
+
+        # remove the line resulting from the last newline
+        if not lines[-1]:
+            lines.pop()
+
+        args["lines"] = lines
 
     return part(**args)
 
