@@ -47,7 +47,12 @@ def aoc(day):
 
     data = get_input(day)
 
-    print(f"Part 1: {format_output(run_part(module.part1, data))}")
+    try:
+        print(f"Part 1: {format_output(run_part(module.part1, data))}")
 
-    if hasattr(module, "part2"):
-        print(f"Part 2: {format_output(run_part(module.part2, data))}")
+        if hasattr(module, "part2"):
+            print(f"Part 2: {format_output(run_part(module.part2, data))}")
+    except KeyboardInterrupt:
+        import traceback, sys
+
+        traceback.print_exc(file=sys.stdout)
